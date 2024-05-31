@@ -3,7 +3,6 @@
 import Image from "next/image";
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
-
 import SearchManufacturer from "./SearchManufacturer";
 
 const SearchButton = ({ otherClasses }: { otherClasses: string }) => (
@@ -35,39 +34,37 @@ const SearchBar = () => {
   };
 
   const updateSearchParams = (model: string, manufacturer: string) => {
-    // Create a new URLSearchParams object using the current URL search parameters
     const searchParams = new URLSearchParams(window.location.search);
 
-    // Update or delete the 'model' search parameter based on the 'model' value
     if (model) {
       searchParams.set("model", model);
     } else {
       searchParams.delete("model");
     }
 
-    // Update or delete the 'manufacturer' search parameter based on the 'manufacturer' value
     if (manufacturer) {
       searchParams.set("manufacturer", manufacturer);
     } else {
-       searchParams.delete("manufacturer");
+      searchParams.delete("manufacturer");
     }
 
-    // Generate the new pathname with the updated search parameters
     const newPathname = `${window.location.pathname}?${searchParams.toString()}`;
-
     router.push(newPathname);
   };
 
   return (
-    <form className='searchbar' onSubmit={handleSearch}>
-      <div className='searchbar__item'>
+    <form className='flex items-center justify-start max-sm:flex-col w-full relative max-sm:gap-4 max-w-3xl' onSubmit={handleSearch}>
+      <div className='flex-1 max-sm:w-full flex justify-start items-center relative'>
         <SearchManufacturer
           manufacturer={manufacturer}
           setManuFacturer={setManuFacturer}
         />
         <SearchButton otherClasses='sm:hidden' />
       </div>
-      <div className='searchbar__item'>
+
+      {/* Model input field */}
+      
+      <div className='flex-1 max-sm:w-full flex justify-start items-center relative'>
         <Image
           src='/model-icon.png'
           width={25}
@@ -81,7 +78,7 @@ const SearchBar = () => {
           value={model}
           onChange={(e) => setModel(e.target.value)}
           placeholder='Tiguan...'
-          className='searchbar__input'
+          className='w-full h-[48px] pl-12 p-4 bg-light-white rounded-r-full max-sm:rounded-full outline-none cursor-pointer text-sm'
         />
         <SearchButton otherClasses='sm:hidden' />
       </div>

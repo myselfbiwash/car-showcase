@@ -13,11 +13,11 @@ export default function HeroSection() {
   };
 
   return (
-    <div className="flex flex-col md:flex md:flex-row  items-center justify-center bg-slate-300 w-screen py-8">
+    <div className="flex flex-col md:flex md:flex-row  items-center justify-center w-screen py-8">
       <div className="mx-auto max-w-2xl py-10 sm:py-48 lg:py-20 bg-red ">
         <div className="hidden sm:mb-8 sm:flex sm:justify-center">
           <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-blue-400 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
-            Introducing you to infinite solution of web.{" "}
+            Welcome to the car showcase site.{" "}
             <a href="#" className="font-semibold text-[#0718C4]">
               <span className="absolute inset-0 " aria-hidden="true" />
               Read more <span aria-hidden="true">&rarr;</span>
